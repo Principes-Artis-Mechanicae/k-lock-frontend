@@ -73,15 +73,18 @@ export const MainSubtitle = styled.h2`
 
 export const MainPageCardSection = styled.div`
     ${vertical_center};
+    justify-content: start;
 
     width: 100%;
     height: 50vh;
 
+    padding-top: 60px;
+    padding-bottom: 10px;
+
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
 
-    padding: 0 60px;
-    gap: 50px;
+    gap: 20px;
 
     background-color: #fff;
 `;

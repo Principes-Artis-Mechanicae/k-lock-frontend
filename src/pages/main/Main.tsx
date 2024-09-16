@@ -1,7 +1,7 @@
-import Footer from "@/components/common/layout/Footer";
-import Header from "@/components/common/layout/Header";
-import AboutCardContainer from "@/components/home/AboutCardContainer";
-import CardContainer from "@/components/home/CardContainer";
+import AboutCardContainer from "@/components/home/aboutCard/AboutCardContainer";
+import CardContainer from "@/components/home/card/CardContainer";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 
 import { MainPageLayout, MainPageLogoSection, MainPageCardSection, MainTitle, MainSubtitle } from "./Main.style";
 
