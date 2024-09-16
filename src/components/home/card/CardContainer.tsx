@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { CardContainerWrapper } from "./CardContainer.style";
-import CardIndex from "./CardIndex";
+
+// import CardIndex from "./CardIndex";
 
 const CardContainer = () => {
     return (
@@ -10,7 +11,7 @@ const CardContainer = () => {
                 <Card />
                 <Card />
             </CardContainerWrapper>
-            <CardIndex />
+            {/* <CardIndex /> */}
         </>
     );
 };

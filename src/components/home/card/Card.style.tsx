@@ -1,4 +1,4 @@
-import { tablet, mobile } from "@/styles/breakpoint";
+import { mobile } from "@/styles/breakpoint";
 
 import styled from "@emotion/styled";
 
@@ -7,10 +7,10 @@ export const CardWrapper = styled.div`
     flex-direction: column;
     position: relative;
 
-    min-height: 247px;
-    aspect-ratio: 380 / 247;
+    min-width: 380px;
+    min-height: 245px;
 
-    padding: 36px;
+    padding: 20px 30px;
     gap: 9px;
 
     border-radius: 40px;
@@ -20,17 +20,17 @@ export const CardWrapper = styled.div`
     cursor: pointer;
     transition: 0.3s ease-in-out;
 
+    scroll-snap-align: center;
+
     &:hover {
+        transform: translateY(-10px);
         background-color: #861c1c;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.4);
     }
 
-    ${tablet} {
-        padding: 20px 30px;
-        aspect-ratio: 3/2;
-    }
     ${mobile} {
-        padding: 20px 30px;
-        min-height: 165px;
+        min-width: 300px;
+        min-height: 200px;
     }
 `;
 
