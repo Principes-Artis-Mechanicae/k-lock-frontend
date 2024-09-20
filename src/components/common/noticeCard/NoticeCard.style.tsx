@@ -1,11 +1,12 @@
+import { mobile } from "@/styles/breakpoint";
+
 import styled from "@emotion/styled";
 
-export const AboutCardWrapper = styled.div`
+export const NoticeCardWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    max-width: 360px;
     min-width: 280px;
     aspect-ratio: 6/1;
 
@@ -18,4 +19,10 @@ export const AboutCardWrapper = styled.div`
     color: #4b4b4b;
 
     cursor: pointer;
+
+    ${mobile} {
+        min-width: 200px;
+        font-size: 15px;
+        padding: 0 20px;
+    }
 `;

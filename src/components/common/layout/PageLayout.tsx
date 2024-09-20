@@ -13,7 +13,7 @@ export const Main = styled.main`
     padding-top: 80px;
 `;
 
-export const UserPageLayout = () => {
+export const PageLayout = () => {
     return (
         <>
             <Header />

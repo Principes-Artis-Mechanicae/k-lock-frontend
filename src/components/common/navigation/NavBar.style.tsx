@@ -2,7 +2,7 @@ import { mobile, tablet } from "@/styles/breakpoint";
 
 import styled from "@emotion/styled";
 
-export const NavBarWrapper = styled.header`
+export const NavBarWrapper = styled.header<{ isMainPage: boolean }>`
     position: absolute;
     top: 0;
 
@@ -17,14 +17,17 @@ export const NavBarWrapper = styled.header`
 
     background-color: transparent;
 
-    color: #fff;
+    color: ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
 
     ${tablet} {
+        border-bottom: 0.5px solid ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
         justify-content: center;
         gap: 5px;
     }
 
     ${mobile} {
+        height: 60px;
+        border-bottom: 0.5px solid ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
         justify-content: center;
         gap: 5px;
     }
@@ -44,15 +47,15 @@ export const NavBarTitle = styled.div`
     cursor: pointer;
 
     ${mobile} {
-        font-size: 24px;
+        font-size: 22px;
     }
 `;
 
-export const Divider = styled.div`
+export const Divider = styled.div<{ isMainPage: boolean }>`
     width: 1px;
     height: 30px;
 
-    background-color: #fff;
+    background-color: ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
 `;
 
 export const NavBarItems = styled.div`
@@ -71,4 +74,21 @@ export const NavBarItems = styled.div`
 export const NavBarBlank = styled.div`
     display: flex;
     width: 37px;
+`;
+
+export const NavAsideButton = styled.img`
+    display: none;
+    position: absolute;
+    left: 20px;
+    width: 37px;
+    height: 20px;
+
+    cursor: pointer;
+
+    ${tablet} {
+        display: block;
+    }
+    ${mobile} {
+        display: block;
+    }
 `;

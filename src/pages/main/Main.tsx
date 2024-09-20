@@ -1,7 +1,7 @@
-import AboutCardContainer from "@/components/home/aboutCard/AboutCardContainer";
-import CardContainer from "@/components/home/card/CardContainer";
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
+import Footer from "@/components/common/layout/Footer";
+import Header from "@/components/common/layout/Header";
+import NoticeCardContainer from "@/components/common/noticeCard/NoticeCardContainer";
+import CardContainer from "@/components/home/CardContainer";
 
 import { MainPageLayout, MainPageLogoSection, MainPageCardSection, MainTitle, MainSubtitle } from "./Main.style";
 
@@ -20,7 +20,7 @@ export default function Main() {
 
                 <MainPageCardSection>
                     <CardContainer />
-                    <AboutCardContainer />
+                    <NoticeCardContainer />
                 </MainPageCardSection>
             </MainPageLayout>
             <Footer />
