@@ -25,7 +25,7 @@ export const NavItemBottomLine = styled.div<{ isMainPage: boolean }>`
     width: 0;
     height: 2px;
     transition: width 1s;
-    background-color: ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
+    background-color: ${({ isMainPage }) => (isMainPage ? "#fff" : "#9a2828")};
 
     ${NavItemWrapper}:hover & {
         width: 100%;

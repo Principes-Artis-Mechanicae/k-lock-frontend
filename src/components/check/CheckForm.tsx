@@ -27,6 +27,7 @@ const CheckForm = () => {
                 </FormItem>
 
                 <FormItem>* 비밀번호를 임의로 변경할 시 변경한 비밀번호를 잊지 않도록 주의해주세요.</FormItem>
+                <FormItem>* 비밀번호가 일치하지 않을 시 0000으로 시도해주세요.</FormItem>
             </FormWrapper>
             <NoticeCardContainer />
         </>

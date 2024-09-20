@@ -60,7 +60,7 @@ export const ItemInput = styled.input`
     border-radius: 20px;
 
     &:focus {
-        border: 2px solid #9a2828;
+        outline: 2px solid #9a2828;
     }
 
     ${mobile} {
@@ -79,7 +79,7 @@ export const ItemTextArea = styled.textarea`
     border-radius: 20px;
 
     &:focus {
-        border: 2px solid #9a2828;
+        outline: 2px solid #9a2828;
     }
 
     ${mobile} {

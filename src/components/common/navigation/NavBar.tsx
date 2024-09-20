@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
-import AsideBlack from "@/assets/header/aside-black.svg";
-import AsideWhite from "@/assets/header/aside-white.svg";
+// import AsideBlack from "@/assets/header/aside-black.svg";
+// import AsideWhite from "@/assets/header/aside-white.svg";
 import LogoColor from "@/assets/header/logo-color.svg";
 import LogoWhite from "@/assets/header/logo-white.svg";
 
-import { NavBarWrapper, Divider, NavBarTitle, NavBarItems, NavBarBlank, NavAsideButton } from "./NavBar.style";
+import { NavBarWrapper, Divider, NavBarTitle, NavBarItems, NavBarBlank } from "./NavBar.style";
 import NavItem from "./NavItem";
 
 const NavBar = () => {
@@ -26,7 +26,7 @@ const NavBar = () => {
 
     return (
         <NavBarWrapper isMainPage={isMainPage}>
-            <NavAsideButton src={isMainPage ? AsideWhite : AsideBlack} alt="aside-button" />
+            {/* <NavAsideButton src={isMainPage ? AsideWhite : AsideBlack} alt="aside-button" /> */}
             <img src={isMainPage ? LogoWhite : LogoColor} alt="logo" />
             <NavBarTitle onClick={onClickNavigate}>KLOCK</NavBarTitle>
             <NavBarItems>
