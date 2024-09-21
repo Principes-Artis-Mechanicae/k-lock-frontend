@@ -39,8 +39,10 @@ export const NavBarLogo = styled.img`
 `;
 
 export const NavBarTitle = styled.div`
-    min-width: 100px;
+    min-width: 80px;
     padding-top: 3px;
+
+    text-align: center;
 
     font-size: 30px;
     font-weight: 400;

@@ -9,6 +9,9 @@ import About from "@/pages/notice/About";
 import Location from "@/pages/notice/Location";
 import Report from "@/pages/report/Report";
 
+import { AuthGuard } from "./components/common/guard/AuthGuard";
+import { DateGuard } from "./components/common/guard/DateGuard";
+
 export const Router = () => {
     return (
         <Routes>
@@ -20,10 +23,34 @@ export const Router = () => {
                     <Route path="location" element={<Location />} />
                 </Route>
 
-                <Route path="location" element={<About />} />
-                <Route path="apply" element={<Apply />} />
-                <Route path="check" element={<Check />} />
-                <Route path="report" element={<Report />} />
+                <Route
+                    path="apply"
+                    element={
+                        <DateGuard isApply={true}>
+                            <Apply />
+                        </DateGuard>
+                    }
+                />
+                <Route
+                    path="check"
+                    element={
+                        <DateGuard>
+                            <AuthGuard>
+                                <Check />
+                            </AuthGuard>
+                        </DateGuard>
+                    }
+                />
+                <Route
+                    path="report"
+                    element={
+                        <DateGuard>
+                            <AuthGuard>
+                                <Report />
+                            </AuthGuard>
+                        </DateGuard>
+                    }
+                />
             </Route>
         </Routes>
     );

@@ -37,6 +37,9 @@ export const Radio = styled.input`
     &:checked {
         background-color: #9a2828;
     }
+    &:checked + span {
+        color: #ffffff; /* 선택된 상태의 텍스트 색상 */
+    }
 
     ${mobile} {
         width: 35px;

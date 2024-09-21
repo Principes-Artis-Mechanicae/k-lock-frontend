@@ -26,6 +26,8 @@ export const FooterContainerBody = styled.div`
     display: flex;
     gap: 20px;
     font-weight: 600;
+
+    color: #868686;
 `;
 
 export const FooterItems = styled.div`
