@@ -1,8 +1,8 @@
 import AccordionItem from "@/components/common/form/Accordion";
 
-import Locker3FImg from "@/assets/locker-3f.png";
-import LockerB1Img from "@/assets/locker-b1.png";
-import LockerLImg from "@/assets/locker-l.png";
+import Locker3FImg from "@/assets/locker/locker-3f.png";
+import LockerB1Img from "@/assets/locker/locker-b1.png";
+import LockerLImg from "@/assets/locker/locker-l.png";
 
 export const AboutContent = () => {
     const aboutInfos = [
