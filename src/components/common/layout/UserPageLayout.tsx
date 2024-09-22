@@ -1,4 +1,4 @@
-import { UserPageLayoutWrapper, UserPageSection, Title, SubTitle } from "./UserPageLayout.style";
+import { UserPageLayoutWrapper, UserPageSection, Title, SubTitle, UserPageImg } from "./UserPageLayout.style";
 
 interface userPageProps {
     title: string;
@@ -16,7 +16,7 @@ const UserPageLayout: React.FC<userPageProps> = ({ title, subTitle, icon, Conten
             </UserPageSection>
             {icon && (
                 <UserPageSection>
-                    <img src={icon} alt="apply" />
+                    <UserPageImg src={icon} alt="apply" />
                 </UserPageSection>
             )}
             <UserPageSection>{Content}</UserPageSection>

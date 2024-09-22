@@ -17,6 +17,11 @@ export const UserPageSection = styled.div`
     gap: 15px;
 `;
 
+export const UserPageImg = styled.img`
+    width: 150px;
+    height: 150px;
+`;
+
 export const Title = styled.h1`
     font-size: 24px;
     font-weight: 600;
@@ -35,6 +40,6 @@ export const SubTitle = styled.h2`
     color: #000;
 
     ${mobile} {
-        font-size: 12px;
+        font-size: 14px;
     }
 `;

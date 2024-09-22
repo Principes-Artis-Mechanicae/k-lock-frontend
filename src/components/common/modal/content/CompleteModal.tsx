@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { ItemButton } from "@/components/common/form/Form.style";
 
-import CheckIcon from "@/assets/icons/check.svg";
+import CheckIcon from "@/assets/icons/check.png";
 
 import { ModalContent, ModalTitle } from "../Modal.style";
 import { uiActions } from "@/store/slice/ui.slice";

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import UserPageLayout from "@/components/common/layout/UserPageLayout";
 import Modal from "@/components/common/modal/Modal";
 
-import ApplyIcon from "@/assets/icons/apply.svg";
+import ApplyIcon from "@/assets/icons/apply.png";
 
 import ApplyForm from "./ApplyForm";
 import { RootState } from "@/store/store";
