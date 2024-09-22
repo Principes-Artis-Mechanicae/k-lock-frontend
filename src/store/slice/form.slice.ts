@@ -26,6 +26,8 @@ const initialState: IFormState = {
     formType: "apply",
 };
 
+const MAX_STUDENT_NUMBER_LENGTH = 10;
+
 const formSlice = createSlice({
     name: "form",
     initialState,
@@ -48,13 +50,17 @@ const formSlice = createSlice({
             state.searchStudentName = action.payload;
         },
         setSearchStudentNumber(state, action: PayloadAction<string>) {
-            state.searchStudentNumber = action.payload;
+            if (action.payload.length <= MAX_STUDENT_NUMBER_LENGTH) {
+                state.searchStudentNumber = action.payload;
+            }
         },
         setStudentName(state, action: PayloadAction<string>) {
             state.studentName = action.payload;
         },
         setStudentNumber(state, action: PayloadAction<string>) {
-            state.studentNumber = action.payload;
+            if (action.payload.length <= MAX_STUDENT_NUMBER_LENGTH) {
+                state.studentNumber = action.payload;
+            }
         },
         setFirstFloor(state, action: PayloadAction<string>) {
             state.firstFloor = action.payload;

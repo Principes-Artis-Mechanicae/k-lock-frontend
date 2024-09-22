@@ -31,18 +31,6 @@ const authSlice = createSlice({
             state.authLockerName = action.payload.lockerName;
             state.authLockerPassword = action.payload.pw;
         },
-        setStudentName(state, action) {
-            state.authStudentName = action.payload;
-        },
-        setStudentNumber(state, action) {
-            state.authStudentNumber = action.payload;
-        },
-        setLockerName(state, action) {
-            state.authLockerName = action.payload;
-        },
-        setLockerPassword(state, action) {
-            state.authLockerPassword = action.payload;
-        },
     },
 });
 
