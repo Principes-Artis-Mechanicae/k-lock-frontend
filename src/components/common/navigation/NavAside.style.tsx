@@ -4,6 +4,7 @@ import { NAV_ASIDE_Z_INDEX } from "@/styles/z-index";
 import styled from "@emotion/styled";
 
 export const NavAsideBackDrop = styled.div`
+    display: none;
     z-index: ${NAV_ASIDE_Z_INDEX - 1};
     position: fixed;
 
@@ -14,9 +15,18 @@ export const NavAsideBackDrop = styled.div`
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 
     transition: backdrop-filter 0.5s ease-in-out;
+
+    ${tablet} {
+        display: block;
+    }
+
+    ${mobile} {
+        display: block;
+    }
 `;
 
 export const NavAsideWrapper = styled.aside`
+    display: none;
     z-index: ${NAV_ASIDE_Z_INDEX};
     position: fixed;
 
@@ -28,6 +38,13 @@ export const NavAsideWrapper = styled.aside`
 
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
+
+    ${tablet} {
+        display: block;
+    }
+    ${mobile} {
+        display: block;
+    }
 `;
 
 export const NavAsideContainer = styled.div`
