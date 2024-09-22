@@ -20,14 +20,12 @@ export const NavBarWrapper = styled.header<{ isMainPage: boolean }>`
     color: ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
 
     ${tablet} {
-        border-bottom: 0.5px solid ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
         justify-content: center;
         gap: 5px;
     }
 
     ${mobile} {
         height: 60px;
-        border-bottom: 0.5px solid ${({ isMainPage }) => (isMainPage ? "#fff" : "#000")};
         justify-content: center;
         gap: 5px;
     }
