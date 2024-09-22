@@ -1,28 +1,34 @@
 import { useSelector } from "react-redux";
 
-import { dateValueFormatter } from "@/utils/utils";
+import { addOneDay, dateValueFormatter } from "@/utils/utils";
 
 import Card from "./Card";
 import { CardContainerWrapper } from "./CardContainer.style";
 import { RootState } from "@/store/store";
 
 const CardContainer = () => {
-    const periodState = useSelector((state: RootState) => state.period);
+    const { firstApplyStartDate, firstApplyEndDate, semesterEndDate, dateType } = useSelector(
+        (state: RootState) => state.period,
+    );
+    const additionalApplyStartDate = addOneDay(firstApplyEndDate);
     const cardData = [
         {
-            duration: `${dateValueFormatter(periodState.firstApplyStartDate)} - ${dateValueFormatter(periodState.firstApplyEndDate)}`,
-            title: "사물함 신청 및 추가 신청",
+            duration:
+                dateType === "additionalApply"
+                    ? `${dateValueFormatter(additionalApplyStartDate)} - ${dateValueFormatter(semesterEndDate)}`
+                    : `${dateValueFormatter(firstApplyStartDate)} - ${dateValueFormatter(firstApplyEndDate)}`,
+            title: dateType === "additionalApply" ? "사물함 추가 신청" : "사물함 신청",
             description: "KLOCKER Application & Additional Application",
             navigationPath: "/apply",
         },
         {
-            duration: `${dateValueFormatter(periodState.firstApplyEndDate)} - ${dateValueFormatter(periodState.semesterEndDate)}`,
+            duration: `${dateValueFormatter(additionalApplyStartDate)} - ${dateValueFormatter(semesterEndDate)}`,
             title: "사물함 배정 조회",
             description: "KLOCKER Assignment Information",
             navigationPath: "/check",
         },
         {
-            duration: `${dateValueFormatter(periodState.firstApplyEndDate)} - ${dateValueFormatter(periodState.semesterEndDate)}`,
+            duration: `${dateValueFormatter(additionalApplyStartDate)} - ${dateValueFormatter(semesterEndDate)}`,
             title: "사물함 고장 신고 및 변경 신청",
             description: "KLOCKER Malfunction & Change Request",
             navigationPath: "/report",

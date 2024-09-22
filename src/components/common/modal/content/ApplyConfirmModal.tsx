@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ItemButton } from "@/components/common/form/Form.style";
 
+import { sendAdditionalApplicationData } from "@/services/application/additional/service";
 import { sendApplicationData } from "@/services/application/primary/service";
 import { sendReportApplicationData } from "@/services/application/replacement/service";
 
@@ -10,12 +11,15 @@ import { RootDispatch, RootState } from "@/store/store";
 
 const ApplyConfirmModal = () => {
     const dispatch: RootDispatch = useDispatch();
+    const { dateType } = useSelector((state: RootState) => state.period);
     const formData = useSelector((state: RootState) => state.form);
 
     const handleSubmit = () => {
         console.log(formData);
-        if (formData.reportContent) {
+        if (formData.formType === "report") {
             sendReportApplicationData(formData, dispatch);
+        } else if (dateType === "additionalApply") {
+            sendAdditionalApplicationData(formData, dispatch);
         } else {
             sendApplicationData(formData, dispatch);
         }

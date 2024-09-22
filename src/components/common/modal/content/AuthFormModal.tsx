@@ -6,7 +6,6 @@ import { getStudentData } from "@/services/application/allocate/service";
 
 import { ModalContent, ModalTitle } from "../Modal.style";
 import { formActions } from "@/store/slice/form.slice";
-import { uiActions } from "@/store/slice/ui.slice";
 import { RootDispatch, RootState } from "@/store/store";
 
 const AuthFormModal = () => {
@@ -19,7 +18,6 @@ const AuthFormModal = () => {
 
     const handleFindStudentData = () => {
         getStudentData(searchStudentNumber, dispatch);
-        dispatch(uiActions.hideModal());
     };
 
     return (

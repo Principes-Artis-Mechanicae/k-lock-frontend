@@ -27,3 +27,10 @@ export const dateValueFormatter = (dateString: string): string => {
 
     return `${month}/${day} ${hours}:${minutes}`;
 };
+
+export const addOneDay = (date: string) => {
+    const nextDate = new Date(date);
+    nextDate.setDate(nextDate.getDate() + 1);
+    nextDate.setHours(0, 0, 0, 0);
+    return String(nextDate);
+};

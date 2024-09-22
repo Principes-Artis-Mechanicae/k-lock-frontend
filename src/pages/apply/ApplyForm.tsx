@@ -26,11 +26,12 @@ const radioOptions = {
 const ApplyForm = () => {
     const dispatch: RootDispatch = useDispatch();
     const { authStudentNumber, authStudentName } = useSelector((state: RootState) => state.auth);
-    const { studentName, studentNumber, firstFloor, firstHeight, secondFloor, secondHeight } = useSelector(
+    const { studentName, studentNumber, firstFloor, firstHeight, secondFloor, secondHeight, formType } = useSelector(
         (state: RootState) => state.form,
     );
 
     useEffect(() => {
+        console.log(formType);
         return () => {
             dispatch(formActions.deleteFormData());
             dispatch(uiActions.hideModal());
@@ -39,7 +40,7 @@ const ApplyForm = () => {
                 dispatch(formActions.setStudentNumber(authStudentNumber));
             }
         };
-    }, []);
+    }, [authStudentName, authStudentNumber, dispatch]);
 
     const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
         switch (field) {

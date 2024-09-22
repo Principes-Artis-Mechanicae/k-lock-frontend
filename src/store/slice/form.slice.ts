@@ -9,6 +9,7 @@ export interface IFormState {
     secondFloor: string;
     secondHeight: string;
     reportContent: string;
+    formType: "report" | "apply";
 }
 
 const initialState: IFormState = {
@@ -20,12 +21,16 @@ const initialState: IFormState = {
     secondFloor: "",
     secondHeight: "",
     reportContent: "",
+    formType: "apply",
 };
 
 const formSlice = createSlice({
     name: "form",
     initialState,
     reducers: {
+        changeFormType(state, payload) {
+            state.formType = payload.payload;
+        },
         deleteFormData(state) {
             state.searchStudentNumber = "";
             state.studentName = "";

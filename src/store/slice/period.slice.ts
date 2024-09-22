@@ -34,8 +34,6 @@ const periodSlice = createSlice({
             state.firstApplyStartDate = action.payload.firstApplyStartDate;
             state.firstApplyEndDate = action.payload.firstApplyEndDate;
             state.semesterEndDate = action.payload.semesterEndDate;
-
-            console.log("신청 기간:", action.payload);
         },
     },
 });

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FormWrapper, FormItem, ItemTitle, ItemContent, ItemTextArea } from "@/components/common/form/Form.style";
@@ -9,22 +10,26 @@ import { RootDispatch, RootState } from "@/store/store";
 const ReportForm = () => {
     const dispatch: RootDispatch = useDispatch();
     const { reportContent } = useSelector((state: RootState) => state.form);
-    const { lockerName, lockerPassword } = useSelector((state: RootState) => state.auth);
+    const { authLockerName, authLockerPassword } = useSelector((state: RootState) => state.auth);
 
     const handleReportChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         dispatch(formActions.setReportContent(e.target.value));
     };
+
+    useEffect(() => {
+        dispatch(formActions.changeFormType("report"));
+    }, [dispatch]);
 
     return (
         <>
             <FormWrapper>
                 <FormItem>
                     <ItemTitle>현재 사물함: </ItemTitle>
-                    <ItemContent>{lockerName}</ItemContent>
+                    <ItemContent>{authLockerName}</ItemContent>
                 </FormItem>
                 <FormItem>
                     <ItemTitle>비밀번호: </ItemTitle>
-                    <ItemContent>{lockerPassword}</ItemContent>
+                    <ItemContent>{authLockerPassword}</ItemContent>
                 </FormItem>
                 <FormItem>
                     <ItemTitle>고장 신고</ItemTitle>

@@ -18,7 +18,7 @@ export const sendReportApplicationData = async (formData: IFormState, dispatch: 
     } catch (error: unknown) {
         dispatch(uiActions.hideModal());
         if (axios.isAxiosError(error) && error.response?.status === 404) {
-            alert("배정 정보가 없습니다.");
+            alert("사물함 배정 정보가 없습니다.");
         } else if (axios.isAxiosError(error) && error.response?.status === 400) {
             alert("잘못된 신청 기간입니다.");
         } else if (axios.isAxiosError(error) && error.response?.status === 409) {

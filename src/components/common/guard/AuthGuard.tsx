@@ -13,11 +13,8 @@ export const AuthGuard = ({ children }: ProtectedRouteProps) => {
     const { authStudentNumber } = useSelector((state: RootState) => state.auth);
 
     useEffect(() => {
-        if (authStudentNumber) {
-            dispatch(uiActions.setModalType("authConfirm"));
-        } else {
-            dispatch(uiActions.setModalType("authForm"));
-        }
+        const modalType = authStudentNumber ? "authConfirm" : "authForm";
+        dispatch(uiActions.setModalType(modalType));
         dispatch(uiActions.showModal());
     });
 

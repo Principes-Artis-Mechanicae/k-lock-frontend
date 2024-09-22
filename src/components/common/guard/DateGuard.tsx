@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -16,7 +17,10 @@ export const DateGuard = ({ children, isApply }: ProtectedRouteProps) => {
     const dispatch: RootDispatch = useDispatch();
     const period = useSelector((state: RootState) => state.period);
 
-    const currentDate = new Date();
+    // const currentDate = new Date();
+    // const currentDate = new Date("2024-09-20T00:00:00"); // firstApply test
+    const currentDate = new Date("2024-10-01T00:00:00"); // additionalApply test
+    // const currentDate = new Date("2024-06-01T00:00:00"); // disable test
 
     const startDate = useMemo(
         () => (period?.firstApplyStartDate ? new Date(period.firstApplyStartDate) : null),
@@ -32,31 +36,24 @@ export const DateGuard = ({ children, isApply }: ProtectedRouteProps) => {
     );
 
     useEffect(() => {
-        if (!startDate || !endDate || !semesterEndDate) {
-            return;
+        if (!startDate || !endDate || !semesterEndDate) return;
+
+        let dateType: "firstApply" | "additionalApply" | "disable" = "disable";
+
+        if (isAfter(currentDate, startDate) && isBefore(currentDate, endDate)) {
+            dateType = "firstApply";
+        } else if (isAfter(currentDate, endDate) && isBefore(currentDate, semesterEndDate)) {
+            dateType = "additionalApply";
         }
 
-        return () => {
-            if (isAfter(currentDate, startDate) && isBefore(currentDate, endDate)) {
-                dispatch(periodActions.setDateType("firstApply"));
-            } else if (isAfter(currentDate, endDate) && isBefore(currentDate, semesterEndDate)) {
-                dispatch(periodActions.setDateType("additionalApply"));
-            } else {
-                dispatch(periodActions.setDateType("disable"));
-            }
-
-            console.log("기간 설정 완료:", period.dateType, currentDate);
-        };
-    }, [currentDate, startDate, endDate, semesterEndDate, dispatch]);
+        dispatch(periodActions.setDateType(dateType));
+    });
 
     if (!startDate || !endDate || !semesterEndDate) {
         return <Navigate to="/" replace />;
     }
 
-    if (period.dateType === "disable") {
-        alert("현재 기간에 해당하는 서비스를 이용할 수 없습니다.");
-        return <Navigate to="/" replace />;
-    } else if (!isApply && period.dateType === "firstApply") {
+    if (period.dateType === "disable" || (!isApply && period.dateType === "firstApply")) {
         alert("현재 기간에 해당하는 서비스를 이용할 수 없습니다.");
         return <Navigate to="/" replace />;
     }
