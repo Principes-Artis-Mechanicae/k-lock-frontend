@@ -1,12 +1,14 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 
+import { api } from "@/config/axios";
+
 import { IFormState } from "@/store/slice/form.slice";
 import { uiActions } from "@/store/slice/ui.slice";
 
 export const sendAdditionalApplicationData = async (formData: IFormState, dispatch: Dispatch) => {
     try {
-        const response = await axios.post(`/api/application/additional`, formData);
+        const response = await api.post(`/application/additional`, formData);
 
         if (response.status === 201) {
             dispatch(uiActions.setModalType("complete"));

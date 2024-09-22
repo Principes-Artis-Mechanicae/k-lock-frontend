@@ -1,13 +1,15 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 
+import { api } from "@/config/axios";
+
 import { AuthResponse } from "./types";
 import { authActions } from "@/store/slice/auth.slice";
 import { uiActions } from "@/store/slice/ui.slice";
 
 export const getStudentData = async (searchStudentName: string, searchStudentNumber: string, dispatch: Dispatch) => {
     try {
-        const response: AuthResponse = await axios.get(`/api/application/allocate/${searchStudentNumber}`);
+        const response: AuthResponse = await api.get(`/application/allocate/${searchStudentNumber}`);
 
         if (response.status === 200) {
             const { studentName, studentNumber, lockerName, pw } = response.data.response;

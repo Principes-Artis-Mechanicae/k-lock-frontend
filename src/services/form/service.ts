@@ -1,12 +1,14 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 
+import { api } from "@/config/axios";
+
 import { PeriodResponse } from "./types";
 import { periodActions } from "@/store/slice/period.slice";
 
 export const getAndSetPeriod = async (dispatch: Dispatch) => {
     try {
-        const response: PeriodResponse = await axios.get(`api/forms/now`);
+        const response: PeriodResponse = await api.get(`/forms/now`);
         const periodData = response.data.response;
 
         if (response.status === 200 && periodData) {
