@@ -6,6 +6,7 @@ import LogoColor from "@/assets/header/logo-color.svg";
 import LogoWhite from "@/assets/header/logo-white.svg";
 
 import { NavBarWrapper, Divider, NavBarTitle, NavBarItems, NavBarBlank } from "./NavBar.style";
+// import { NavAsideButton } from "./NavBar.style";
 import NavItem from "./NavItem";
 
 const NavBar = () => {
@@ -19,6 +20,9 @@ const NavBar = () => {
     ];
 
     const navigate = useNavigate();
+
+    // const onCLickNavAside = () => {};
+
     const onClickNavigate = () => {
         navigate("/");
         window.scrollTo(0, 0);
@@ -26,7 +30,9 @@ const NavBar = () => {
 
     return (
         <NavBarWrapper isMainPage={isMainPage}>
-            {/* <NavAsideButton src={isMainPage ? AsideWhite : AsideBlack} alt="aside-button" /> */}
+            {/* <NavAsideButton onClick={onCLickNavAside}>
+                <img src={isMainPage ? AsideWhite : AsideBlack} alt="aside" />
+            </NavAsideButton> */}
             <img src={isMainPage ? LogoWhite : LogoColor} alt="logo" />
             <NavBarTitle onClick={onClickNavigate}>KLOCK</NavBarTitle>
             <NavBarItems>

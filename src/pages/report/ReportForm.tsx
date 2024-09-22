@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FormWrapper, FormItem, ItemTitle, ItemContent, ItemTextArea } from "@/components/common/form/Form.style";
@@ -12,12 +12,19 @@ const ReportForm = () => {
     const { reportContent } = useSelector((state: RootState) => state.form);
     const { authLockerName, authLockerPassword } = useSelector((state: RootState) => state.auth);
 
-    const handleReportChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        dispatch(formActions.setReportContent(e.target.value));
-    };
+    const handleReportChange = useCallback(
+        (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+            dispatch(formActions.setReportContent(e.target.value));
+        },
+        [dispatch],
+    );
 
     useEffect(() => {
         dispatch(formActions.changeFormType("report"));
+
+        return () => {
+            dispatch(formActions.changeFormType("apply"));
+        };
     }, [dispatch]);
 
     return (

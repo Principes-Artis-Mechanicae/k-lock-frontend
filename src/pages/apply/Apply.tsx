@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import UserPageLayout from "@/components/common/layout/UserPageLayout";
 import Modal from "@/components/common/modal/Modal";
@@ -7,19 +6,13 @@ import Modal from "@/components/common/modal/Modal";
 import ApplyIcon from "@/assets/icons/apply.svg";
 
 import ApplyForm from "./ApplyForm";
-import { formActions } from "@/store/slice/form.slice";
-import { RootState, RootDispatch } from "@/store/store";
+import { RootState } from "@/store/store";
 
 export default function Apply() {
-    const dispatch: RootDispatch = useDispatch();
     const { isModalOpened } = useSelector((state: RootState) => state.ui);
     const { dateType, year, semester } = useSelector((state: RootState) => state.period);
 
     const title = dateType === "additionalApply" ? "사물함 추가 신청" : "사물함 신청";
-
-    useEffect(() => {
-        dispatch(formActions.changeFormType("apply"));
-    });
 
     return (
         <>

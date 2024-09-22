@@ -4,6 +4,12 @@ import Locker3FImg from "@/assets/locker/locker-3f.png";
 import LockerB1Img from "@/assets/locker/locker-b1.png";
 import LockerLImg from "@/assets/locker/locker-l.png";
 
+const renderAccordionItems = (items: { title: string; content: string; img?: string }[]) => {
+    return items.map((info, index) => (
+        <AccordionItem key={index} title={info.title} content={info.content} img={info.img} number={index} />
+    ));
+};
+
 export const AboutContent = () => {
     const aboutInfos = [
         {
@@ -42,13 +48,7 @@ export const AboutContent = () => {
         },
     ];
 
-    return (
-        <>
-            {aboutInfos.map((info, index) => (
-                <AccordionItem key={index} title={info.title} content={info.content} number={index} />
-            ))}
-        </>
-    );
+    return <>{renderAccordionItems(aboutInfos)}</>;
 };
 
 export const LocationContent = () => {
@@ -86,11 +86,5 @@ export const LocationContent = () => {
         },
     ];
 
-    return (
-        <>
-            {locationInfos.map((info, index) => (
-                <AccordionItem key={index} title={info.title} content={info.content} img={info.img} number={index} />
-            ))}
-        </>
-    );
+    return <>{renderAccordionItems(locationInfos)}</>;
 };

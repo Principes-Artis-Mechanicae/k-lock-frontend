@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -26,12 +26,11 @@ const radioOptions = {
 const ApplyForm = () => {
     const dispatch: RootDispatch = useDispatch();
     const { authStudentNumber, authStudentName } = useSelector((state: RootState) => state.auth);
-    const { studentName, studentNumber, firstFloor, firstHeight, secondFloor, secondHeight, formType } = useSelector(
+    const { studentName, studentNumber, firstFloor, firstHeight, secondFloor, secondHeight } = useSelector(
         (state: RootState) => state.form,
     );
 
     useEffect(() => {
-        console.log(formType);
         return () => {
             dispatch(formActions.deleteFormData());
             dispatch(uiActions.hideModal());
@@ -42,35 +41,35 @@ const ApplyForm = () => {
         };
     }, [authStudentName, authStudentNumber, dispatch]);
 
-    const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-        switch (field) {
-            case "studentName":
+    const handleInputChange = useCallback(
+        (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+            if (field === "studentName") {
                 dispatch(formActions.setStudentName(e.target.value));
-                break;
-            case "studentNumber":
+            } else if (field === "studentNumber") {
                 dispatch(formActions.setStudentNumber(e.target.value));
-                break;
-        }
-    };
+            }
+        },
+        [dispatch],
+    );
 
-    const handleRadioChange = (name: string, value: string) => {
-        switch (name) {
-            case "first-floor":
-                dispatch(formActions.setFirstFloor(lockerValueChanger[value]));
-                break;
-            case "first-height":
-                dispatch(formActions.setFirstHeight(lockerValueChanger[value]));
-                break;
-            case "second-floor":
-                dispatch(formActions.setSecondFloor(lockerValueChanger[value]));
-                break;
-            case "second-height":
-                dispatch(formActions.setSecondHeight(lockerValueChanger[value]));
-                break;
-        }
-    };
+    const handleRadioChange = useCallback(
+        (name: "first-floor" | "first-height" | "second-floor" | "second-height", value: string) => {
+            const actionMap = {
+                "first-floor": formActions.setFirstFloor,
+                "first-height": formActions.setFirstHeight,
+                "second-floor": formActions.setSecondFloor,
+                "second-height": formActions.setSecondHeight,
+            };
 
-    const onClickApply = () => {
+            const action = actionMap[name];
+            if (action) {
+                dispatch(action(lockerValueChanger[value]));
+            }
+        },
+        [dispatch],
+    );
+
+    const onClickApply = useCallback(() => {
         if (!studentName || !studentNumber || !firstFloor || !firstHeight || !secondFloor || !secondHeight) {
             alert("모든 항목을 입력해주세요.");
             return;
@@ -78,7 +77,7 @@ const ApplyForm = () => {
 
         dispatch(uiActions.setModalType("applyConfirm"));
         dispatch(uiActions.showModal());
-    };
+    }, [studentName, studentNumber, firstFloor, firstHeight, secondFloor, secondHeight, dispatch]);
 
     return (
         <>

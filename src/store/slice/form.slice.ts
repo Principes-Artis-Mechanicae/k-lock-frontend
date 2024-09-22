@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IFormState {
+    searchStudentName: string;
     searchStudentNumber: string;
     studentName: string;
     studentNumber: string;
@@ -13,6 +14,7 @@ export interface IFormState {
 }
 
 const initialState: IFormState = {
+    searchStudentName: "",
     searchStudentNumber: "",
     studentName: "",
     studentNumber: "",
@@ -32,6 +34,7 @@ const formSlice = createSlice({
             state.formType = payload.payload;
         },
         deleteFormData(state) {
+            state.searchStudentName = "";
             state.searchStudentNumber = "";
             state.studentName = "";
             state.studentNumber = "";
@@ -40,6 +43,9 @@ const formSlice = createSlice({
             state.secondFloor = "";
             state.secondHeight = "";
             state.reportContent = "";
+        },
+        setSearchStudentName(state, action: PayloadAction<string>) {
+            state.searchStudentName = action.payload;
         },
         setSearchStudentNumber(state, action: PayloadAction<string>) {
             state.searchStudentNumber = action.payload;

@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ItemButton } from "@/components/common/form/Form.style";
@@ -14,8 +15,7 @@ const ApplyConfirmModal = () => {
     const { dateType } = useSelector((state: RootState) => state.period);
     const formData = useSelector((state: RootState) => state.form);
 
-    const handleSubmit = () => {
-        console.log(formData);
+    const handleSubmit = useCallback(() => {
         if (formData.formType === "report") {
             sendReportApplicationData(formData, dispatch);
         } else if (dateType === "additionalApply") {
@@ -23,7 +23,7 @@ const ApplyConfirmModal = () => {
         } else {
             sendApplicationData(formData, dispatch);
         }
-    };
+    }, [formData, dateType, dispatch]);
 
     return (
         <>

@@ -6,7 +6,7 @@ import Header from "@/components/common/layout/Header";
 import NoticeCardContainer from "@/components/common/noticeCard/NoticeCardContainer";
 import CardContainer from "@/components/home/CardContainer";
 
-import { fetchAndSetPeriod } from "@/services/form/service";
+import { getAndSetPeriod } from "@/services/form/service";
 
 import { MainPageLayout, MainPageLogoSection, MainPageCardSection, MainTitle, MainSubtitle } from "./Main.style";
 import { RootState } from "@/store/store";
@@ -17,7 +17,7 @@ export default function Main() {
 
     useEffect(() => {
         if (!periodState.applyFormId) {
-            fetchAndSetPeriod(dispatch);
+            getAndSetPeriod(dispatch);
         }
     }, [periodState.applyFormId, dispatch]);
 

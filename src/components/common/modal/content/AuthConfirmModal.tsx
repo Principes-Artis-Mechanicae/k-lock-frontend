@@ -12,10 +12,10 @@ const AuthConfirmModal = () => {
     const dispatch: RootDispatch = useDispatch();
     const { authStudentNumber, authStudentName } = useSelector((state: RootState) => state.auth);
 
-    const handleDeleteAuth = () => {
+    const handleDeleteAuth = useCallback(() => {
         dispatch(authActions.deleteStudentData());
         dispatch(uiActions.setModalType("authForm"));
-    };
+    }, [dispatch]);
 
     const handleModalClose = useCallback(() => {
         dispatch(uiActions.hideModal());

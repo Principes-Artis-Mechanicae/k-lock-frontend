@@ -17,15 +17,23 @@ export const sendReportApplicationData = async (formData: IFormState, dispatch: 
         }
     } catch (error: unknown) {
         dispatch(uiActions.hideModal());
-        if (axios.isAxiosError(error) && error.response?.status === 404) {
-            alert("사물함 배정 정보가 없습니다.");
-        } else if (axios.isAxiosError(error) && error.response?.status === 400) {
-            alert("잘못된 신청 기간입니다.");
-        } else if (axios.isAxiosError(error) && error.response?.status === 409) {
-            alert("이미 고장 신고 및 변경 신청한 학생입니다.");
+
+        if (axios.isAxiosError(error)) {
+            const { status } = error.response || {};
+
+            if (status === 404) {
+                alert("학적 정보가 없습니다. 페이지 아래 카카오톡 아이디로 문의해주세요.");
+            } else if (status === 400) {
+                alert("잘못된 신청 기간입니다. 신청 기간을 확인하고 다시 시도해주세요.");
+            } else if (status === 409) {
+                alert("이미 고장 신고 및 재배정 신청한 학생입니다.");
+            } else {
+                console.error("Error submitting application:", error);
+                alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
+            }
         } else {
-            console.error("Error submitting application:", error);
-            alert("서버 오류가 발생했습니다. 다시 시도해주세요.");
+            console.error("Unknown error occurred:", error);
+            alert("알 수 없는 오류가 발생했습니다. 다시 시도해주세요.");
         }
     }
 };

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -18,6 +17,7 @@ export const DateGuard = ({ children, isApply }: ProtectedRouteProps) => {
     const period = useSelector((state: RootState) => state.period);
 
     // const currentDate = new Date();
+
     // const currentDate = new Date("2024-09-20T00:00:00"); // firstApply test
     const currentDate = new Date("2024-10-01T00:00:00"); // additionalApply test
     // const currentDate = new Date("2024-06-01T00:00:00"); // disable test
@@ -47,7 +47,7 @@ export const DateGuard = ({ children, isApply }: ProtectedRouteProps) => {
         }
 
         dispatch(periodActions.setDateType(dateType));
-    });
+    }, [currentDate, startDate, endDate, semesterEndDate, dispatch]);
 
     if (!startDate || !endDate || !semesterEndDate) {
         return <Navigate to="/" replace />;

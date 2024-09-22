@@ -22,10 +22,10 @@ export const CardContainerWrapper = styled.div`
     ${mobile} {
         justify-content: start;
         &>: first-of-type {
-            margin-left: 200px; // 첫 카드에 왼쪽 마진
+            margin-left: 200px;
         }
         &>: last-of-type {
-            margin-right: 300px; // 마지막 카드에 오른쪽 마진
+            margin-right: 300px;
         }
         scroll-snap-type: x mandatory;
     }
@@ -33,10 +33,10 @@ export const CardContainerWrapper = styled.div`
     ${tablet} {
         justify-content: start;
         &>: first-of-type {
-            margin-left: 300px; // 첫 카드에 왼쪽 마진
+            margin-left: 300px;
         }
         &>: last-of-type {
-            margin-right: 300px; // 마지막 카드에 오른쪽 마진
+            margin-right: 300px;
         }
         scroll-snap-type: x mandatory;
     }

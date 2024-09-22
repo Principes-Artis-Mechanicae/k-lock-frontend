@@ -11,6 +11,21 @@ import CompleteModal from "./content/CompleteModal";
 import { uiActions } from "@/store/slice/ui.slice";
 import { RootDispatch, RootState } from "@/store/store";
 
+const ModalContent: React.FC<{ modalType: string }> = ({ modalType }) => {
+    switch (modalType) {
+        case "applyConfirm":
+            return <ApplyConfirmModal />;
+        case "authConfirm":
+            return <AuthConfirmModal />;
+        case "authForm":
+            return <AuthFormModal />;
+        case "complete":
+            return <CompleteModal />;
+        default:
+            return <div>오류</div>;
+    }
+};
+
 const Modal: React.FC = () => {
     const dispatch: RootDispatch = useDispatch();
     const { modalType } = useSelector((state: RootState) => state.ui);
@@ -19,24 +34,9 @@ const Modal: React.FC = () => {
         dispatch(uiActions.hideModal());
     }, [dispatch]);
 
-    const ModalContent = () => {
-        switch (modalType) {
-            case "applyConfirm":
-                return <ApplyConfirmModal />;
-            case "authConfirm":
-                return <AuthConfirmModal />;
-            case "authForm":
-                return <AuthFormModal />;
-            case "complete":
-                return <CompleteModal />;
-            default:
-                return <div>오류</div>;
-        }
-    };
-
     return (
         <>
-            <ModalBackDrop onClick={handleModalClose} />
+            <ModalBackDrop onClick={modalType !== "authForm" ? handleModalClose : undefined} />
             <ModalWrapper>
                 {modalType !== "authForm" && (
                     <ModalController onClick={handleModalClose}>
@@ -44,7 +44,7 @@ const Modal: React.FC = () => {
                     </ModalController>
                 )}
                 <ModalContainer>
-                    <ModalContent />
+                    <ModalContent modalType={modalType} />
                 </ModalContainer>
             </ModalWrapper>
         </>
