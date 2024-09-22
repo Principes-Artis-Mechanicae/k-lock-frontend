@@ -42,7 +42,7 @@
         "prettier": "^3.3.3",
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.0.1",
-        "vite": "^5.4.5"
+        "vite": "^5.4.7"
     },
     "proxy": "http://localhost:39253"
 }
