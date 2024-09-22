@@ -26,7 +26,7 @@ const AuthFormModal = () => {
 
     const handleFindStudentData = useCallback(() => {
         getStudentData(searchStudentName, searchStudentNumber, dispatch);
-    }, [searchStudentNumber, dispatch]);
+    }, [searchStudentNumber, searchStudentName, dispatch]);
 
     return (
         <>
