@@ -1,12 +1,13 @@
 import { mobile } from "@/styles/breakpoint";
 import { place_center } from "@/styles/utils";
+import { MODAL_Z_INDEX } from "@/styles/z-index";
 
 import styled from "@emotion/styled";
 
 export const ModalBackDrop = styled.div`
     position: fixed;
     inset: 0;
-    z-index: 1000;
+    z-index: ${MODAL_Z_INDEX};
 
     width: 100%;
     height: 100vh;
@@ -44,7 +45,7 @@ export const ModalContainer = styled.div`
     ${place_center}
     flex-direction: column;
 
-    z-index: 1000;
+    z-index: ${MODAL_Z_INDEX};
 
     width: 100%;
 
@@ -57,7 +58,7 @@ export const ModalContainer = styled.div`
 export const ModalWrapper = styled.div`
     position: fixed;
 
-    z-index: 1000;
+    z-index: ${MODAL_Z_INDEX};
 
     width: 500px;
 

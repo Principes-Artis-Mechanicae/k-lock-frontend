@@ -77,29 +77,3 @@ export const NavBarBlank = styled.div`
     display: flex;
     width: 37px;
 `;
-
-export const NavAsideButton = styled.div`
-    display: none;
-    position: absolute;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-
-    cursor: pointer;
-
-    img {
-        width: 30px;
-        height: 20px;
-    }
-
-    ${tablet} {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    ${mobile} {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-`;
