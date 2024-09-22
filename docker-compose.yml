@@ -1,0 +1,12 @@
+services:
+    k-lock-frontend:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: k-lock-frontend
+        environment:
+            NODE_ENV: production
+            PORT: 
+        ports:
+            - "51000:51000"
+        restart: always
