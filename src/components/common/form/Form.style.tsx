@@ -56,8 +56,9 @@ export const ItemInput = styled.input`
     height: 40px;
 
     padding: 5px 20px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 20px;
+    margin: 5px 0;
 
     &:focus {
         outline: 2px solid #9a2828;
@@ -75,7 +76,7 @@ export const ItemTextArea = styled.textarea`
     resize: none;
 
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 20px;
 
     &:focus {

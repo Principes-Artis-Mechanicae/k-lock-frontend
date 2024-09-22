@@ -4,6 +4,7 @@
     border: 0;
 
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 a {

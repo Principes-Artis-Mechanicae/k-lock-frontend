@@ -11,7 +11,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                target: "https://api.knucse.site",
+                target: "http://localhost:39253",
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ""),
             },

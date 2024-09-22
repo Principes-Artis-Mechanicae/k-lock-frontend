@@ -34,9 +34,9 @@ export const NavAsideWrapper = styled.aside`
     margin-right: auto;
 
     width: 90%;
-    height: calc(100vh - 80px);
+    height: 100vh;
 
-    transform: translateX(0);
+    transform: translateX(0px);
     transition: transform 0.5s ease-in-out;
 
     ${tablet} {

@@ -10,6 +10,7 @@ export const CardContainerWrapper = styled.div`
     overflow-x: auto;
     overflow-y: hidden;
 
+    padding: 0 10px;
     padding-top: 10px;
 
     min-height: 200px;
@@ -21,22 +22,16 @@ export const CardContainerWrapper = styled.div`
 
     ${mobile} {
         justify-content: start;
-        &>: first-of-type {
-            margin-left: 200px;
-        }
-        &>: last-of-type {
-            margin-right: 300px;
-        }
         scroll-snap-type: x mandatory;
     }
 
     ${tablet} {
         justify-content: start;
         &>: first-of-type {
-            margin-left: 300px;
+            margin-left: 10px;
         }
         &>: last-of-type {
-            margin-right: 300px;
+            margin-right: 10px;
         }
         scroll-snap-type: x mandatory;
     }

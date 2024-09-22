@@ -42,8 +42,8 @@ export const Radio = styled.input`
     }
 
     ${mobile} {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
 `;
 
