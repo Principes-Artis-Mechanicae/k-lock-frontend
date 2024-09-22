@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import LogoColor from "@/assets/header/logo-color.svg";
@@ -24,10 +25,14 @@ const NavBar = () => {
         window.scrollTo(0, 0);
     };
 
+    const memoizedLogo = useMemo(() => {
+        return isMainPage ? LogoWhite : LogoColor;
+    }, [isMainPage]);
+
     return (
         <NavBarWrapper isMainPage={isMainPage}>
             <NavAsideButton />
-            <img src={isMainPage ? LogoWhite : LogoColor} alt="logo" />
+            <img src={memoizedLogo} alt="logo" />
             <NavBarTitle onClick={onClickNavigate}>KLOCK</NavBarTitle>
             <NavBarItems>
                 <Divider isMainPage={isMainPage} />

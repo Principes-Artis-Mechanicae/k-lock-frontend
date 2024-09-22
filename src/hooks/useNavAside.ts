@@ -22,9 +22,11 @@ export const useNavAside = () => {
             }, 1);
         } else {
             if (backdropRef.current) backdropRef.current.style.backdropFilter = `blur(0px)`;
-            if (navAsideRef.current) navAsideRef.current.style.transform = `translateX(-400px)`;
+            if (navAsideRef.current) navAsideRef.current.style.transform = `translateX(-600px)`;
+
+            if (backdropRef.current) backdropRef.current.style.display = "none";
+
             timeout.current = setTimeout(() => {
-                if (backdropRef.current) backdropRef.current.style.display = "none";
                 if (navAsideRef.current) navAsideRef.current.style.display = "none";
             }, 500);
         }

@@ -47,7 +47,7 @@ export const FooterCopyRight = styled.div`
     }
 
     ${mobile} {
-        font-size: 12px;
+        font-size: 11px;
     }
 `;
 
