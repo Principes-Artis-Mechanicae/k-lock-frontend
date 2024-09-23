@@ -6,8 +6,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 
 const TitleStyle = {
-    fontWeight: 600,
-    fontSize: "18px",
+    fontWeight: 700,
+    fontSize: "16px",
     color: "#9a2828",
 };
 
@@ -39,7 +39,7 @@ interface AccordionItemProps {
 
 const AccordionItem: React.FC<AccordionItemProps> = ({ title, content, number, img }) => {
     return (
-        <CustomAccordion style={{ borderRadius: "20px" }}>
+        <CustomAccordion style={{ borderRadius: "20px", margin: "10px 10px" }}>
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={`panel${number}-content`}

@@ -22,7 +22,7 @@ export const useNavAside = () => {
             }, 1);
         } else {
             if (backdropRef.current) backdropRef.current.style.backdropFilter = `blur(0px)`;
-            if (navAsideRef.current) navAsideRef.current.style.transform = `translateX(-600px)`;
+            if (navAsideRef.current) navAsideRef.current.style.transform = `translateX(-100%)`;
 
             if (backdropRef.current) backdropRef.current.style.display = "none";
 
