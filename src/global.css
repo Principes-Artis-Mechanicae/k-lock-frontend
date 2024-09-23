@@ -4,6 +4,8 @@
     border: 0;
 
     box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 a {
