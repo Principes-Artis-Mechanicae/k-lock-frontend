@@ -74,6 +74,7 @@ export const ItemTextArea = styled.textarea`
     height: 80px;
 
     resize: none;
+    margin: 5px 0;
 
     padding: 10px 20px;
     font-size: 16px;
