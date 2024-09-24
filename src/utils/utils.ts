@@ -31,6 +31,6 @@ export const dateValueFormatter = (dateString: string): string => {
 export const addOneDay = (date: string) => {
     const nextDate = new Date(date);
     nextDate.setDate(nextDate.getDate() + 1);
-    nextDate.setHours(0, 0, 0, 0);
+    nextDate.setHours(9, 0, 0, 0);
     return String(nextDate);
 };
