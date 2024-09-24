@@ -16,6 +16,10 @@ export const AuthGuard = ({ children }: ProtectedRouteProps) => {
         const modalType = authStudentNumber ? "authConfirm" : "authForm";
         dispatch(uiActions.setModalType(modalType));
         dispatch(uiActions.showModal());
+
+        return () => {
+            dispatch(uiActions.hideModal());
+        };
     });
 
     return children;
