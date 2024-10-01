@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ItemButton } from "@/components/common/form/Form.style";
 
+import { getStudentData } from "@/services/application/allocate/service";
+
 import { ModalContent, ModalTitle } from "../Modal.style";
 import { authActions } from "@/store/slice/auth.slice";
 import { uiActions } from "@/store/slice/ui.slice";
@@ -18,8 +20,9 @@ const AuthConfirmModal = () => {
     }, [dispatch]);
 
     const handleModalClose = useCallback(() => {
+        getStudentData(authStudentName, authStudentNumber, dispatch);
         dispatch(uiActions.hideModal());
-    }, [dispatch]);
+    }, [authStudentName, authStudentNumber, dispatch]);
 
     return (
         <>
