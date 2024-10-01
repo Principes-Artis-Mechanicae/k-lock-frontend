@@ -58,14 +58,14 @@ export const ItemInput = styled.input`
     padding: 5px 20px;
     font-size: 16px;
     border-radius: 20px;
-    margin: 5px 0;
+    margin: 5px 2px;
 
     &:focus {
         outline: 2px solid #9a2828;
     }
 
     ${mobile} {
-        width: 180px;
+        width: 165px;
     }
 `;
 
@@ -74,8 +74,7 @@ export const ItemTextArea = styled.textarea`
     height: 80px;
 
     resize: none;
-    margin: 5px 0;
-    margin-right: 2px;
+    margin: 5px 2px;
 
     padding: 10px 20px;
     font-size: 16px;
